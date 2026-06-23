@@ -7,96 +7,55 @@ const motionsList = [
     id: 1,
     title: 'This House Believes AI Will Replace Traditional Education',
     category: 'Technology',
-    difficulty: 'Advanced',
-    date: 'June 2024',
-    description: 'Exploring the impact of artificial intelligence on educational systems worldwide.',
+    event: 'IITBPD',
+    infoSlide:
+      'Definitions, context, statistics, stakeholder analysis and debate framing.',
   },
   {
     id: 2,
     title: 'This House Supports Universal Basic Income',
     category: 'Economics',
-    difficulty: 'Intermediate',
-    date: 'May 2024',
-    description: 'Debating the merits and challenges of implementing UBI in modern economies.',
-  },
-  {
-    id: 3,
-    title: 'This House Would Ban Social Media For Minors',
-    category: 'Social',
-    difficulty: 'Beginner',
-    date: 'April 2024',
-    description: 'Examining the effects of social media on youth mental health and development.',
-  },
-  {
-    id: 4,
-    title: 'This House Believes Democracy is the Best Form of Government',
-    category: 'Politics',
-    difficulty: 'Advanced',
-    date: 'March 2024',
-    description: 'Analyzing different governance models and their effectiveness.',
-  },
-  {
-    id: 5,
-    title: 'This House Would Make Voting Mandatory',
-    category: 'Politics',
-    difficulty: 'Intermediate',
-    date: 'February 2024',
-    description: 'Discussing compulsory voting and civic engagement.',
-  },
-  {
-    id: 6,
-    title: 'This House Supports Nuclear Energy as Primary Power Source',
-    category: 'Environment',
-    difficulty: 'Advanced',
-    date: 'January 2024',
-    description: 'Evaluating nuclear energy in the context of climate change.',
-  },
-  {
-    id: 7,
-    title: 'This House Would Legalize All Drugs',
-    category: 'Social',
-    difficulty: 'Advanced',
-    date: 'December 2023',
-    description: 'Debating drug legalization policies and their societal impacts.',
-  },
-  {
-    id: 8,
-    title: 'This House Believes Tech Giants Should Be Broken Up',
-    category: 'Technology',
-    difficulty: 'Intermediate',
-    date: 'November 2023',
-    description: 'Examining antitrust concerns in the technology sector.',
+    event: 'IITKPD',
+    infoSlide:
+      'Definitions, context, statistics, stakeholder analysis and debate framing.',
   },
 ];
 
 const categories = ['All', 'Technology', 'Economics', 'Social', 'Politics', 'Environment'];
-const difficulties = ['All', 'Beginner', 'Intermediate', 'Advanced'];
+const events = [
+  'All',
+  'IITBPD',
+  'IITKPD',
+  'IITDPD',
+  'NSUTPD',
+  'DTUPD',
+];
 
 export default function Motions() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const [selectedDifficulty, setSelectedDifficulty] = useState('All');
+  const [selectedEvent, setSelectedEvent] = useState('All');
+  interface Motion {
+  id: number;
+  title: string;
+  category: string;
+  event: string;
+  infoSlide: string;
+}
+
+const [selectedMotion, setSelectedMotion] = useState<Motion | null>(null);
   const [showFilters, setShowFilters] = useState(false);
 
   const filteredMotions = motionsList.filter((motionItem) => {
     const matchesSearch = motionItem.title.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesCategory = selectedCategory === 'All' || motionItem.category === selectedCategory;
-    const matchesDifficulty = selectedDifficulty === 'All' || motionItem.difficulty === selectedDifficulty;
-    return matchesSearch && matchesCategory && matchesDifficulty;
+    const matchesEvent =
+  selectedEvent === 'All' ||
+  motionItem.event === selectedEvent;
+   return matchesSearch && matchesCategory && matchesEvent;
   });
 
-  const getDifficultyColor = (difficulty: string) => {
-    switch (difficulty) {
-      case 'Beginner':
-        return 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20';
-      case 'Intermediate':
-        return 'bg-gold-500/10 text-gold-500 border-gold-500/20';
-      case 'Advanced':
-        return 'bg-red-500/10 text-red-400 border-red-500/20';
-      default:
-        return 'bg-white/10 text-gray-400 border-white/20';
-    }
-  };
+  
 
   const getCategoryColor = (category: string) => {
     const colors: Record<string, string> = {
@@ -207,26 +166,27 @@ export default function Motions() {
                       ))}
                     </div>
                   </div>
+<div>
+  <label className="block text-sm font-medium text-gray-300 mb-3">
+    Event
+  </label>
 
-                  {/* Difficulty Filter */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-300 mb-3">Difficulty</label>
-                    <div className="flex flex-wrap gap-2">
-                      {difficulties.map((difficulty) => (
-                        <button
-                          key={difficulty}
-                          onClick={() => setSelectedDifficulty(difficulty)}
-                          className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
-                            selectedDifficulty === difficulty
-                              ? 'bg-gold-500 text-navy-900'
-                              : 'bg-white/5 text-gray-300 hover:bg-white/10'
-                          }`}
-                        >
-                          {difficulty}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
+  <div className="flex flex-wrap gap-2">
+    {events.map((event) => (
+      <button
+        key={event}
+        onClick={() => setSelectedEvent(event)}
+        className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+          selectedEvent === event
+            ? 'bg-gold-500 text-navy-900'
+            : 'bg-white/5 text-gray-300 hover:bg-white/10'
+        }`}
+      >
+        {event}
+      </button>
+    ))}
+  </div>
+</div>
                 </div>
               </motion.div>
             )}
@@ -252,19 +212,15 @@ export default function Motions() {
               whileHover={{ y: -4 }}
               className="group glass-card p-6 rounded-xl bg-white/5 border border-white/10 hover:border-gold-500/30 transition-all duration-300"
             >
-              {/* Category & Difficulty */}
+              {/* Category & Event */}
               <div className="flex items-center gap-2 mb-4">
                 <span className={`text-xs font-medium ${getCategoryColor(motionItem.category)}`}>
                   {motionItem.category}
                 </span>
                 <span className="text-gray-600">•</span>
-                <span
-                  className={`text-xs font-medium px-2 py-0.5 rounded-full border ${getDifficultyColor(
-                    motionItem.difficulty
-                  )}`}
-                >
-                  {motionItem.difficulty}
-                </span>
+                <span className="text-gold-500 text-xs font-medium">
+                {motionItem.event}
+              </span>
               </div>
 
               {/* Title */}
@@ -273,17 +229,17 @@ export default function Motions() {
               </h3>
 
               {/* Description */}
-              <p className="text-gray-400 text-sm mb-4">{motionItem.description}</p>
 
               {/* Date */}
               <div className="flex items-center justify-between">
-                <span className="text-xs text-gray-500">{motionItem.date}</span>
-                <motion.button
-                  whileHover={{ x: 5 }}
-                  className="text-gold-500 text-sm font-medium hover:text-gold-400 transition-colors"
-                >
-                  View Details
-                </motion.button>
+            
+                          <motion.button
+            whileHover={{ x: 5 }}
+            onClick={() => setSelectedMotion(motionItem)}
+            className="text-gold-500 text-sm font-medium hover:text-gold-400 transition-colors"
+          >
+            Info Slide →
+          </motion.button>
               </div>
             </motion.div>
           ))}
@@ -298,11 +254,11 @@ export default function Motions() {
           >
             <div className="text-gray-400 text-lg mb-4">No motions found</div>
             <button
-              onClick={() => {
-                setSearchQuery('');
-                setSelectedCategory('All');
-                setSelectedDifficulty('All');
-              }}
+                      onClick={() => {
+          setSearchQuery('');
+          setSelectedCategory('All');
+          setSelectedEvent('All');
+        }}
               className="text-gold-500 hover:text-gold-400 transition-colors"
             >
               Clear all filters
@@ -310,6 +266,39 @@ export default function Motions() {
           </motion.div>
         )}
       </div>
+      <AnimatePresence>
+  {selectedMotion && (
+    <motion.div
+      className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <div className="bg-navy-900 border border-gold-500/20 rounded-2xl p-8 max-w-3xl w-full">
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-2xl font-bold text-white">
+            {selectedMotion.title}
+          </h2>
+
+          <button
+            onClick={() => setSelectedMotion(null)}
+            className="text-gray-400 hover:text-white"
+          >
+            <X />
+          </button>
+        </div>
+
+        <p className="text-gold-500 mb-4">
+          {selectedMotion.event}
+        </p>
+
+        <p className="text-gray-300 leading-relaxed">
+          {selectedMotion.infoSlide}
+        </p>
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
     </section>
   );
 }

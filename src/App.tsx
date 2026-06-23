@@ -1,9 +1,10 @@
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+
 import Navbar from './components/Navbar';
+
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
-import JuniorCouncilPage from './pages/JuniorCouncilPage';
-import SeniorCouncilPage from './pages/SeniorCouncilPage';
+import CouncilPage from './pages/CouncilPage';
 import EventsPage from './pages/EventsPage';
 import MotionsPage from './pages/MotionsPage';
 import RuleBookPage from './pages/RuleBookPage';
@@ -15,11 +16,11 @@ function App() {
     <Router>
       <div className="min-h-screen bg-navy-900">
         <Navbar />
+
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
-          <Route path="/junior-council" element={<JuniorCouncilPage />} />
-          <Route path="/senior-council" element={<SeniorCouncilPage />} />
+          <Route path="/council" element={<CouncilPage />} />
           <Route path="/events" element={<EventsPage />} />
           <Route path="/motions" element={<MotionsPage />} />
           <Route path="/rulebook" element={<RuleBookPage />} />

@@ -145,13 +145,13 @@ export default function HomePage() {
           transition={{ delay: 1.5 }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2"
         >
-          <motion.div
+          {/* <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
             className="w-6 h-10 rounded-full border-2 border-white/30 flex justify-center pt-2"
           >
             <div className="w-1.5 h-3 rounded-full bg-gold-500" />
-          </motion.div>
+          </motion.div> */}
         </motion.div>
       </section>
 

@@ -1,13 +1,16 @@
 import { motion } from 'framer-motion';
 import {
   FileText,
-  Download,
-  ExternalLink,
   BookOpen,
   Scale,
   Users,
   Award,
 } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
+
+const RULEBOOK_LINK =
+  'https://drive.google.com/file/d/YOUR_FILE_ID/view';
+
 
 const rules = [
   {
@@ -38,22 +41,7 @@ const rules = [
 
 export default function RuleBook() {
   console.log("RULEBOOK COMPONENT LOADED");
-  const handleDownload = () => {
-    console.log('Download clicked');
-
-    const link = document.createElement('a');
-    link.href = '/rulebook.pdf';
-    link.download = 'Cognitive_Minds_RuleBook_2024_25.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
-  const handleViewOnline = () => {
-    console.log('View clicked');
-    window.open('/rulebook.pdf', '_blank');
-  };
-
+  
   return (
     <section
       id="rulebook"
@@ -120,35 +108,28 @@ export default function RuleBook() {
                   Official Rule Book 2024-25
                 </h3>
 
-                <p className="text-gray-400 mb-6">
-                  Complete handbook containing all rules, regulations, and
-                  guidelines for participating in Debating Society events and
-                  competitions.
-                </p>
+                            <p className="text-gray-400 mb-4">
+              Official handbook containing all rules, regulations and competition
+              guidelines for Cognitive Minds events and tournaments.
+            </p>
+
+            <p className="text-sm text-gold-500">
+              Google Drive PDF • Updated 2024-25
+            </p>
 
                 <div className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
-                  {/* Download Button */}
-<motion.button
-  onClick={handleDownload}
-  whileHover={{ scale: 1.05 }}
-  whileTap={{ scale: 0.95 }}
-  className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-gold-500 to-gold-600 text-navy-900 font-semibold rounded-full shadow-lg hover:shadow-gold-500/20 transition-all"
->
-  <Download className="w-5 h-5" />
-  Download PDF
-</motion.button>
-
-                  {/* View Online Button */}
-                  <motion.button
-  onClick={handleViewOnline}
-  whileHover={{ scale: 1.05 }}
-  whileTap={{ scale: 0.95 }}
-  className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 text-white font-semibold rounded-full hover:bg-white/5 transition-colors"
->
-  <ExternalLink className="w-5 h-5" />
-  View Online
-</motion.button>
-                </div>
+  <motion.a
+    href={RULEBOOK_LINK}
+    target="_blank"
+    rel="noopener noreferrer"
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-gold-500 to-gold-600 text-navy-900 font-semibold rounded-full shadow-lg hover:shadow-gold-500/20 transition-all"
+  >
+    <ExternalLink className="w-5 h-5" />
+    Open Rule Book
+  </motion.a>
+</div>
               </div>
             </div>
           </div>
@@ -201,10 +182,10 @@ export default function RuleBook() {
             For any clarifications or queries regarding the rule book, please
             contact the Senior Council at{' '}
             <a
-              href="mailto:debating@nsut.ac.in"
+              href="mailto:debating@dtu.ac.in"
               className="text-gold-500 hover:underline"
             >
-              debating@nsut.ac.in
+              debating@dtu.ac.in
             </a>
           </p>
         </motion.div>

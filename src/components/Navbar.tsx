@@ -6,8 +6,7 @@ import { Menu, X } from 'lucide-react';
 const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'About', path: '/about' },
-  { name: 'Junior Council', path: '/junior-council' },
-  { name: 'Senior Council', path: '/senior-council' },
+  { name: 'Council', path: '/council' },
   { name: 'Events', path: '/events' },
   { name: 'Motions', path: '/motions' },
   { name: 'Rule Book', path: '/rulebook' },
@@ -72,13 +71,14 @@ export default function Navbar() {
               <NavLink
                 key={link.name}
                 to={link.path}
+                end={link.path === '/'}
                 className={({ isActive }) =>
-                  `px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
-                    isActive
-                      ? 'text-gold-500 bg-white/5'
-                      : 'text-gray-300 hover:text-white hover:bg-white/5'
-                  }`
-                }
+                `px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
+                  isActive
+                    ? 'text-gold-500 bg-white/5'
+                    : 'text-gray-300 hover:text-white hover:bg-white/5'
+                }`
+              }
               >
                 <motion.span whileHover={{ y: -2 }} className="block">
                   {link.name}
