@@ -1,3 +1,4 @@
+
 import {
   Instagram,
   Linkedin,
@@ -5,12 +6,12 @@ import {
 } from 'lucide-react';
 
 const quickLinks = [
-  { name: 'Home', href: '#home' },
-  { name: 'About', href: '#about' },
-  { name: 'Events', href: '#events' },
-  { name: 'Motions', href: '#motions' },
-  { name: 'Rule Book', href: '#rulebook' },
-  { name: 'Contact', href: '#contact' },
+  { name: 'Home', href: '/' },
+  { name: 'About', href: '/AboutPage.tsx' },
+  { name: 'Events', href: '/events' },
+  { name: 'Motions', href: '/motions' },
+  { name: 'Rule Book', href: '/rulebook' },
+  { name: 'Contact', href: '/contact' },
 ];
 
 const socialIcons = [
@@ -20,17 +21,6 @@ const socialIcons = [
 ];
 
 export default function Footer() {
-  const scrollToSection = (href: string) => {
-    const element = document.getElementById(
-      href.replace('#', '')
-    );
-
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-      });
-    }
-  };
 
   return (
     <footer className="w-full bg-gradient-to-b from-[#062743] to-[#021421] border-t border-[#F5C542]/20 text-white">
@@ -63,18 +53,14 @@ export default function Footer() {
 
             <div className="grid grid-cols-2 gap-y-4">
               {quickLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    scrollToSection(link.href);
-                  }}
-                  className="text-slate-300 hover:text-[#F5C542] transition-colors"
-                >
-                  {link.name}
-                </a>
-              ))}
+  <a
+    key={link.name}
+    href={link.href}
+    className="text-slate-300 hover:text-[#F5C542] transition-colors"
+  >
+    {link.name}
+  </a>
+))}
             </div>
           </div>
 
