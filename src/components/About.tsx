@@ -45,7 +45,7 @@ export default function About() {
               Shaping Voices, Building Leaders
             </h3>
             <p className="text-gray-400 leading-relaxed mb-8">
-              The Debating Society of NSUT is a premier platform for intellectual discourse,
+              The Debating Society of DTU is a premier platform for intellectual discourse,
               critical thinking, and persuasive communication. Founded over a decade ago,
               we have grown into one of the most prestigious debating societies in Delhi NCR,
               nurturing minds that go on to become leaders, policymakers, and change-makers.

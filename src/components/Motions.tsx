@@ -27,7 +27,7 @@ const events = [
   'IITBPD',
   'IITKPD',
   'IITDPD',
-  'NSUTPD',
+  'DTUPD',
   'DTUPD',
 ];
 

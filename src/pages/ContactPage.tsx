@@ -149,7 +149,7 @@ export default function ContactPage() {
                     <div>
                       <h4 className="text-white font-medium mb-1">Email</h4>
                       <a
-                        href="mailto:debating@nsut.ac.in"
+                        href="mailto:debating@DTU.ac.in"
                         className="text-gray-400 hover:text-gold-500 transition-colors"
                       >
                         debating@dtu.ac.in
@@ -208,20 +208,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Map */}
-              <div className="glass-card p-2 rounded-2xl bg-white/5 border border-white/10 overflow-hidden">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.0737213584!2d77.0556!3d28.6094!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d1a6c2c5c5c5f%3A0x5c5f5c5f5c5f5c5f!2sNetaji%20Subhas%20University%20of%20Technology!5e0!3m2!1sen!2sin!4v1234567890"
-                  width="100%"
-                  height="200"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="rounded-xl"
-                  title="NSUT Location"
-                />
-              </div>
+              
             </motion.div>
           </div>
         </div>

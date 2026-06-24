@@ -59,13 +59,13 @@ export default function Hero() {
             className="inline-block mb-6 px-6 py-2 rounded-full border border-gold-500/30 bg-gold-500/5"
           >
             <span className="text-gold-500 text-sm font-medium tracking-wider uppercase">
-              NSUT, New Delhi
+              DTU, New Delhi
             </span>
           </motion.div>
 
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
             The Debating Society
-            <span className="block text-gold-500 mt-2">NSUT</span>
+            <span className="block text-gold-500 mt-2">DTU</span>
           </h1>
 
           <motion.p

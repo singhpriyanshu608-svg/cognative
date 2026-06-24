@@ -11,7 +11,7 @@ const navLinks = [
   { name: 'Motions', path: '/motions' },
   { name: 'Rule Book', path: '/rulebook' },
   { name: 'Achievements', path: '/achievements' },
-  { name: 'Contact', path: '/contact' },
+  { name: 'Contact Us', path: '/contact' },
 ];
 
 export default function Navbar() {
@@ -67,7 +67,7 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-1">
-            {navLinks.slice(0, 7).map((link) => (
+            {navLinks.slice(0, 8).map((link) => (
               <NavLink
                 key={link.name}
                 to={link.path}

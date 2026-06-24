@@ -150,7 +150,7 @@ export default function Contact() {
                   <div>
                     <h4 className="text-white font-medium mb-1">Email</h4>
                     <a
-                      href="mailto:debating@nsut.ac.in"
+                      href="mailto:debating@DTU.ac.in"
                       className="text-gray-400 hover:text-gold-500 transition-colors"
                     >
                       debating@dtu.ac.in
@@ -223,7 +223,7 @@ export default function Contact() {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 className="rounded-xl"
-                title="NSUT Location"
+                title="DTU Location"
               />
             </div>
           </motion.div>
