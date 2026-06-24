@@ -283,7 +283,7 @@ export default function HomePage() {
                   className="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full border border-gold-500/30 bg-gold-500/10 text-gold-400 text-sm font-semibold tracking-[0.2em] uppercase"
                 >
                   <span className="h-2 w-2 rounded-full bg-gold-500" />
-                  DTU Debating Society
+                  Cognitive Mindes
                 </motion.div>
 
                 <motion.h1
